@@ -1,0 +1,40 @@
+.Homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contenant-cat-hero-image {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  font-weight: bolder;
+}
+
+.texte-on-cat-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cat-hero {
+  background-size: cover;
+  width: 100%;
+}
+
+.Header {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.text-header {
+  text-align: justify;
+  margin: 2rem 5rem 0.5rem;
+}
+
+.cat-icon {
+  height: 150px;
+}
