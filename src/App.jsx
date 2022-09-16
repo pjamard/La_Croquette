@@ -4,6 +4,7 @@ import './App.css';
 import Homepage from './pages/Homepage';
 import LesCroquettes from './pages/LesCroquettes';
 import Comparateur from './pages/Comparateur';
+import MyAccount from './pages/MyAccount';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path='/' element={<Homepage />} />
           <Route path='lescroquettes' element={<LesCroquettes />} />
           <Route path='comparateur' element={<Comparateur />} />
+          <Route path='moncompte' element={<MyAccount />} />
         </Routes>
       </Router>
     </div>
