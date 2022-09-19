@@ -1,8 +1,13 @@
+import carnilove from '../images/carnilove.jpg';
+import purizon from '../images/purizon.jpg';
+import tasteofwild from '../images/test-of-wild.jpg';
+
 const datas = [
   {
     id: 1,
-    picture: '../images/carnilove.jpg',
+    picture: carnilove,
     brand: 'CARNILOVE',
+    name: 'nom du sac de croquettes',
     age: 'adulte',
     flavour: 'poisson',
     cereal: true,
@@ -12,8 +17,9 @@ const datas = [
   },
   {
     id: 2,
-    picture: '../images/purizon.jpg',
+    picture: purizon,
     brand: 'PURIZON',
+    name: 'nom du sac de croquettes',
     age: 'adulte',
     flavour: 'poulet',
     cereal: true,
@@ -23,14 +29,27 @@ const datas = [
   },
   {
     id: 3,
-    picture: '../images/test-of-wild.jpg',
-    brand: 'TEST-OF-WILD',
+    picture: tasteofwild,
+    brand: 'TASTE-OF-WILD',
+    name: 'nom du sac de croquette',
     age: 'chaton',
     flavour: 'dinde',
     cereal: true,
-    sterelised: false,
-    weight: false,
-    urinaryCare: false,
+    sterelised: true,
+    weight: true,
+    urinaryCare: true,
+  },
+  {
+    id: 4,
+    picture: tasteofwild,
+    brand: 'TASTE-OF-WILD',
+    name: 'nom du sac de croquette',
+    age: 'chaton',
+    flavour: 'dinde',
+    cereal: true,
+    sterelised: true,
+    weight: true,
+    urinaryCare: true,
   },
 ];
 
