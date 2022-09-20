@@ -1,0 +1,73 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar body {
+  height: 100vh;
+}
+
+.navbar {
+  padding: 0 1rem 0 1rem;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+.navbar-items {
+  display: flex;
+  list-style-type: none;
+  height: 100%;
+  line-height: 50px;
+  font-size: 1rem;
+}
+
+.items {
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0 10px 0 10px;
+}
+
+.items:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5sec;
+}
+
+.items span {
+  font-size: 10px;
+}
+
+.items:nth-child(3) {
+  margin-left: 0;
+}
+
+.subMenu {
+  list-style-type: none;
+  position: relative;
+  top: -1px;
+}
+
+.subMenu:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5sec;
+}
+
+.subMenu-items {
+  text-align: center;
+  padding: 0 10px;
+  border-bottom: 0.5px solid black;
+  cursor: pointer;
+}
+
+.subMenu-items:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5sec;
+}

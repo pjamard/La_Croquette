@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../CSS/Navbar.css';
-import logo from '../images/logos/logo.png';
-import brand from '../images/logos/la-croquette.png';
+import logoBrand from '../images/logos/la-croquette-logo.png';
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,39 +20,49 @@ function Navbar() {
 
   return (
     <nav className='navbar'>
-      <div className='brand-logo'>
-        <img src={logo} alt='logo' />
-        <img src={brand} alt='logo' />
-      </div>
-      <div className='navbar-links'>
-        <ul>
-          <li>Accueil</li>
-          <li onClick={lesCroquettesChange}>Les croquettes</li>
+      <img className='logo' src={logoBrand} alt='Logo' />
+      <ul className='navbar-items'>
+        <li className='items'>Accueil</li>
+        <li className='items' onClick={lesCroquettesChange}>
+          Les croquettes
           {isLesCroquettesClicked ? (
-            <ul>
-              <li>Juniors</li>
-              <li>Adultes</li>
-              <li>Seniors</li>
-              <li>Tout voir</li>
-            </ul>
-          ) : null}
-          <li>Comparateur</li>
-          {isLoggedIn ? (
-            <>
-              <li onClick={monCompteChange}>Mon compte</li>
-              {isMonCompteClicked ? (
-                <ul>
-                  <li>Mes informations</li>
-                  <li>Mes favoris</li>
-                  <li onClick={login}>Me déconnecter</li>
-                </ul>
-              ) : null}
-            </>
+            <span>&#10134;</span>
           ) : (
-            <li onClick={login}>Connexion</li>
+            <span>&#10133;</span>
           )}
-        </ul>
-      </div>
+        </li>
+        {isLesCroquettesClicked ? (
+          <ul className='subMenu'>
+            <li className='subMenu-items'>Juniors</li>
+            <li className='subMenu-items'>Adultes</li>
+            <li className='subMenu-items'>Seniors</li>
+            <li className='subMenu-items'>Tout voir</li>
+          </ul>
+        ) : null}
+        {isLoggedIn ? (
+          <>
+            <li className='items' onClick={monCompteChange}>
+              Mon compte
+              {isMonCompteClicked ? (
+                <span>&#10134;</span>
+              ) : (
+                <span>&#10133;</span>
+              )}
+            </li>
+            {isMonCompteClicked ? (
+              <ul className='subMenu'>
+                <li>Mes informations</li>
+                <li>Mes favoris</li>
+                <li onClick={login}>Me déconnecter</li>
+              </ul>
+            ) : null}
+          </>
+        ) : (
+          <li className='items' onClick={login}>
+            Connexion
+          </li>
+        )}
+      </ul>
     </nav>
   );
 }
