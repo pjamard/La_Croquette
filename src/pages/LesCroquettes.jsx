@@ -2,10 +2,12 @@ import React from 'react';
 import datas from '../datas/datas.js';
 import Card from '../components/Card.jsx';
 import '../CSS/LesCroquettes.css';
+import Filter from '../components/Filter.jsx';
 
 function LesCroquettes() {
   return (
     <div>
+      <Filter />
       <div className='card-container'>
         {datas.map((data) => (
           <Card
