@@ -36,7 +36,7 @@
 .items:hover {
   background-color: black;
   color: white;
-  transition: 0.5sec;
+  transition: 0.5s;
 }
 
 .items span {
@@ -56,7 +56,7 @@
 .subMenu:hover {
   background-color: black;
   color: white;
-  transition: 0.5sec;
+  transition: 0.5s;
 }
 
 .subMenu-items {
@@ -69,5 +69,5 @@
 .subMenu-items:hover {
   background-color: black;
   color: white;
-  transition: 0.5sec;
+  transition: 0.5s;
 }
