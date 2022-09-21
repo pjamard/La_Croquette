@@ -6,13 +6,13 @@ import Footer from '../components/Footer';
 
 function Homepage() {
   return (
-    <div className='Homepage'>
+    <div className='homepage'>
       <div className='contenant-cat-hero-image'>
         <img className='cat-hero' src={CatHero} alt='cat-hero' />
         <div className='texte-on-cat-image'>LA CROQUETTE</div>
       </div>
       <div>
-        <h1 className='Header'>
+        <h1 className='header'>
           Votre comparateur de croquettes simple et rapide{' '}
         </h1>
         <p className='text-header'>
