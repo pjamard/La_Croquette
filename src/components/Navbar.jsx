@@ -24,38 +24,40 @@ function Navbar() {
       <ul className='navbar-items'>
         <li className='items'>Accueil</li>
         <li className='items' onClick={lesCroquettesChange}>
-          Les croquettes
+          Les croquettes{' '}
           {isLesCroquettesClicked ? (
             <span>&#10134;</span>
           ) : (
             <span>&#10133;</span>
           )}
+          {isLesCroquettesClicked ? (
+            <ul className='subMenu'>
+              <li className='subMenu-items'>Juniors</li>
+              <li className='subMenu-items'>Adultes</li>
+              <li className='subMenu-items'>Seniors</li>
+              <li className='subMenu-items'>Tout voir</li>
+            </ul>
+          ) : null}
         </li>
-        {isLesCroquettesClicked ? (
-          <ul className='subMenu'>
-            <li className='subMenu-items'>Juniors</li>
-            <li className='subMenu-items'>Adultes</li>
-            <li className='subMenu-items'>Seniors</li>
-            <li className='subMenu-items'>Tout voir</li>
-          </ul>
-        ) : null}
         {isLoggedIn ? (
           <>
             <li className='items' onClick={monCompteChange}>
-              Mon compte
+              Mon compte{' '}
               {isMonCompteClicked ? (
                 <span>&#10134;</span>
               ) : (
                 <span>&#10133;</span>
               )}
+              {isMonCompteClicked ? (
+                <ul className='subMenu'>
+                  <li className='subMenu-items'>Mes informations</li>
+                  <li className='subMenu-items'>Mes favoris</li>
+                  <li className='subMenu-items' onClick={login}>
+                    Me déconnecter
+                  </li>
+                </ul>
+              ) : null}
             </li>
-            {isMonCompteClicked ? (
-              <ul className='subMenu'>
-                <li>Mes informations</li>
-                <li>Mes favoris</li>
-                <li onClick={login}>Me déconnecter</li>
-              </ul>
-            ) : null}
           </>
         ) : (
           <li className='items' onClick={login}>
