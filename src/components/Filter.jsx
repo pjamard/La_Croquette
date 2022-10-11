@@ -1,54 +1,61 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Checkbox from './Checkbox';
 import '../CSS/Filter.css';
 
-function Filter() {
-  const [active, setActive] = useState(false);
-
-  function handleChange() {
-    setActive(!active);
-  }
+function Filter(props) {
+  const {
+    adult,
+    senior,
+    kitten,
+    steril,
+    cereal,
+    weight,
+    health,
+    handleAdult,
+    handleSenior,
+    handleKitten,
+    handleSteril,
+    handleCereal,
+    handleWeight,
+    handleHealth,
+  } = props;
 
   return (
     <div className='Filter'>
       {' '}
       <h1>Filtrer</h1>
       <div>
+        <Checkbox active={adult} handleChange={handleAdult} content='Adulte' />
         <Checkbox
-          active={active}
-          handleChange={handleChange}
-          content='Adulte'
-        />
-        <Checkbox
-          active={active}
-          handleChange={handleChange}
+          active={senior}
+          handleChange={handleSenior}
           content='Sénior'
         />
         <Checkbox
-          active={active}
-          handleChange={handleChange}
+          active={kitten}
+          handleChange={handleKitten}
           content='Chaton'
         />
       </div>
       <div>
         <Checkbox
-          active={active}
-          handleChange={handleChange}
+          active={steril}
+          handleChange={handleSteril}
           content='Chat stérilisé'
         />
         <Checkbox
-          active={active}
-          handleChange={handleChange}
+          active={cereal}
+          handleChange={handleCereal}
           content='Sans céréale'
         />
         <Checkbox
-          active={active}
-          handleChange={handleChange}
+          active={weight}
+          handleChange={handleWeight}
           content='Contrôle du poids'
         />
         <Checkbox
-          active={active}
-          handleChange={handleChange}
+          active={health}
+          handleChange={handleHealth}
           content='Santé urinaire'
         />
       </div>
