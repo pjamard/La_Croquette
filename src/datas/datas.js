@@ -20,7 +20,7 @@ const datas = [
     picture: purizon,
     brand: 'PURIZON',
     name: 'nom du sac de croquettes',
-    age: 'senior',
+    age: 'sénior',
     flavour: 'poulet',
     cereal: true,
     sterelised: false,
