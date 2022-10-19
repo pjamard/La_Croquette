@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import datas from '../datas/datas.js';
 import '../CSS/LesCroquettes.css';
 import Filter from '../components/Filter.jsx';
@@ -6,6 +6,7 @@ import CardList from '../components/CardList.jsx';
 
 function LesCroquettes() {
   const categories = ['adulte', 'sénior', 'chaton'];
+  const flavours = ['poulet', 'poisson', 'dinde'];
 
   const [state, setState] = useState({
     products: datas,
@@ -26,7 +27,7 @@ function LesCroquettes() {
 
         if (filters.size) {
           products = products.filter((product) => {
-            return filters.has(product.age);
+            return filters.has(product.age) && filters.has(product.flavour) || filters.has(product.age || product.flavour);
           });
         }
 
@@ -41,7 +42,11 @@ function LesCroquettes() {
 
   return (
     <div className='card-container'>
-      <Filter categories={categories} handleFilterChange={handleFilterChange} />
+      <Filter
+        categories={categories}
+        flavours={flavours}
+        handleFilterChange={handleFilterChange}
+      />
       <CardList products={state.products} />
     </div>
   );

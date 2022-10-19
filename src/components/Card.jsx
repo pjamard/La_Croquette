@@ -39,13 +39,14 @@ function Card(props) {
             Santé urinaire :{' '}
             {urinaryCare ? <span>&#9989;</span> : <span>&#10060;</span>}
           </li>
+          <li></li>
         </ul>
       </div>
       <div>
         <button className='btn-info-card'>Plus d'informations</button>
       </div>
       <div>
-        <Checkbox value="Comparer"/>
+        <Checkbox value='Comparer' />
       </div>
     </div>
   );

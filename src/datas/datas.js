@@ -24,7 +24,7 @@ const datas = [
     flavour: 'poulet',
     cereal: true,
     sterelised: false,
-    weight: false,
+    weight: true,
     urinaryCare: false,
   },
   {

@@ -1,10 +1,9 @@
 import React from 'react';
 import Checkbox from './Checkbox';
-import datas from '../datas/datas.js';
 import '../CSS/Filter.css';
 
 function Filter(props) {
-  const { categories, handleFilterChange } = props;
+  const { categories, flavours, handleFilterChange } = props;
 
   return (
     <div className='Filter'>
@@ -14,6 +13,13 @@ function Filter(props) {
         {categories.map((category) => (
           <li key={category}>
             <Checkbox value={category} handleChange={handleFilterChange} />
+          </li>
+        ))}
+      </ul>
+      <ul>
+        {flavours.map((flavour) => (
+          <li key={flavour}>
+            <Checkbox value={flavour} handleChange={handleFilterChange} />
           </li>
         ))}
       </ul>
