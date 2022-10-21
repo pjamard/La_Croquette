@@ -2,10 +2,10 @@ import React from 'react';
 import Card from '../components/Card.jsx';
 
 function CardList(props) {
-  const { datas } = props;
+  const { updateDatas } = props;
   return (
     <div>
-      {datas.map((data) => (
+      {updateDatas.map((data) => (
         <Card key={data.id} {...data} />
       ))}
     </div>

@@ -19,9 +19,9 @@ function LesCroquettes() {
   );
   console.log('vérif flavour', checkedFlavour);
 
-  const handle = () => {
-    let updateDatas = [...datas];
-
+  let updateDatas = [...datas];
+  
+  const handleFilter = () => {
     //if none checked
     if (
       !checkedAge[0] &&
@@ -52,9 +52,9 @@ function LesCroquettes() {
     if (checkedAge[0] || checkedAge[1] || checkedAge[2]) {
       updateDatas = datas.filter((data) => {
         return (
-          (data.age === 'adulte' && checkedAge[0]) ||
-          (data.age === 'sénior' && checkedAge[1]) ||
-          (data.age === 'chaton' && checkedAge[2])
+          (data.age === age[0].valueOf() && checkedAge[0]) ||
+          (data.age === age[1].valueOf() && checkedAge[1]) ||
+          (data.age === age[2].valueOf() && checkedAge[2])
         );
       });
     }
@@ -63,54 +63,32 @@ function LesCroquettes() {
     if (checkedFlavour[0] || checkedFlavour[1] || checkedFlavour[2]) {
       updateDatas = datas.filter((data) => {
         return (
-          (data.flavour === 'poulet' && checkedFlavour[0]) ||
-          (data.flavour === 'poisson' && checkedFlavour[1]) ||
-          (data.flavour === 'dinde' && checkedFlavour[2])
+          (data.flavour === flavours[0].valueOf() && checkedFlavour[0]) ||
+          (data.flavour === flavours[1].valueOf() && checkedFlavour[1]) ||
+          (data.flavour === flavours[2].valueOf() && checkedFlavour[2])
         );
       });
     }
 
+    //if checkedFlavour and checkedAge checked
     if (
       (checkedAge[0] || checkedAge[1] || checkedAge[2]) &&
       (checkedFlavour[0] || checkedFlavour[1] || checkedFlavour[2])
     ) {
       updateDatas = datas.filter((data) => {
         return (
-          ((data.age === 'adulte' && checkedAge[0]) ||
-            (data.age === 'sénior' && checkedAge[1]) ||
-            (data.age === 'chaton' && checkedAge[2])) &&
-          ((data.flavour === 'poulet' && checkedFlavour[0]) ||
-            (data.flavour === 'poisson' && checkedFlavour[1]) ||
-            (data.flavour === 'dinde' && checkedFlavour[2]))
+          ((data.age === age[0].valueOf() && checkedAge[0]) ||
+            (data.age === age[1].valueOf() && checkedAge[1]) ||
+            (data.age === age[2].valueOf() && checkedAge[2])) &&
+          ((data.flavour === flavours[0].valueOf() && checkedFlavour[0]) ||
+            (data.flavour === flavours[1].valueOf() && checkedFlavour[1]) ||
+            (data.flavour === flavours[2].valueOf() && checkedFlavour[2]))
         );
       });
     }
 
-    // updateDatas = datas.filter((data) => {
-    //   if (checkedFlavour) {
-    //     return (
-    //       (data.flavour === 'poulet' && checkedFlavour[0]) ||
-    //       (data.flavour === 'poisson' && checkedFlavour[1]) ||
-    //       (data.flavour === 'dinde' && checkedFlavour[2])
-    //     );
-    //   } else if (!checkedFlavour && checkedAge) {
-    //     return (
-    //       (data.age === 'adulte' && checkedAge[0]) ||
-    //       (data.age === 'sénior' && checkedAge[1]) ||
-    //       (data.age === 'chaton' && checkedAge[2])
-    //     );
-    //   } else if (checkedAge && checkedFlavour) {
-    //     return (
-    //       ((data.age === 'adulte' && checkedAge[0]) ||
-    //         (data.age === 'sénior' && checkedAge[1]) ||
-    //         (data.age === 'chaton' && checkedAge[2])) &&
-    //       ((data.flavour === 'poulet' && checkedFlavour[0]) ||
-    //         (data.flavour === 'poisson' && checkedFlavour[1]) ||
-    //         (data.flavour === 'dinde' && checkedFlavour[2]))
-    //     );
-    //   }
-    // });
     console.log('solution', updateDatas);
+    return updateDatas;
   };
 
   const handleOnChangeFlavourCheckbox = (position) => {
@@ -118,7 +96,7 @@ function LesCroquettes() {
       index === position ? !item : item
     );
     setCheckedFlavour(updatedCheckedFlavour);
-    handle(updatedCheckedFlavour);
+    handleFilter(updatedCheckedFlavour);
   };
 
   const handleOnChangeAgeCheckbox = (position) => {
@@ -127,10 +105,10 @@ function LesCroquettes() {
     );
 
     setCheckedAge(updatedCheckedAge);
-    handle(updatedCheckedAge);
+    handleFilter(updatedCheckedAge);
   };
 
-  console.log(handle())
+  console.log(handleFilter());
 
   return (
     <div className='card-container'>
@@ -141,9 +119,8 @@ function LesCroquettes() {
         flavours={flavours}
         checkedFlavour={checkedFlavour}
         handleOnChangeFlavourCheckbox={handleOnChangeFlavourCheckbox}
-        handle={handle}
       />
-      <CardList datas={datas} />
+      <CardList datas={datas} updateDatas={updateDatas} />
     </div>
   );
 }

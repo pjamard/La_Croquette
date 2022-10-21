@@ -45,7 +45,7 @@ const datas = [
     brand: 'TASTE-OF-WILD',
     name: 'nom du sac de croquette',
     age: 'chaton',
-    flavour: 'dinde',
+    flavour: 'poisson',
     cereal: true,
     sterelised: true,
     weight: true,
