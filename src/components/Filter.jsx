@@ -1,6 +1,5 @@
 import React from 'react';
 import Checkbox from './Checkbox';
-import datas from '../datas/datas.js';
 import '../CSS/Filter.css';
 
 function Filter(props) {
@@ -11,12 +10,16 @@ function Filter(props) {
     flavours,
     checkedFlavour,
     handleOnChangeFlavourCheckbox,
+    brands,
+    checkedBrands,
+    handleOnChangeBrandsCheckbox,
   } = props;
 
   return (
     <div className='Filter'>
       {' '}
       <h1>Filtrer</h1>
+      {/* Age checkbox */}
       {age.map((name, index) => {
         return (
           <ul>
@@ -43,16 +46,35 @@ function Filter(props) {
           </ul>
         );
       })}
+      {/* Flavours checkbox */}
       {flavours.map((name, index) => {
         return (
           <ul>
             <li key={index}>
-              <div className='age-list-item'>
+              <div className='flavours-list-item'>
                 <div>
                   <Checkbox
                     value={name}
                     handleChange={() => handleOnChangeFlavourCheckbox(index)}
                     checked={checkedFlavour[index]}
+                  />
+                </div>
+              </div>
+            </li>
+          </ul>
+        );
+      })}
+      {/* Brands checkbox */}
+      {brands.map((name, index) => {
+        return (
+          <ul>
+            <li key={index}>
+              <div className='brands-list-item'>
+                <div>
+                  <Checkbox
+                    value={name.toLowerCase()}
+                    handleChange={() => handleOnChangeBrandsCheckbox(index)}
+                    checked={checkedBrands[index]}
                   />
                 </div>
               </div>
