@@ -8,6 +8,12 @@ function LesCroquettes() {
   const age = ['adulte', 'sénior', 'chaton'];
   const flavours = ['poulet', 'poisson', 'dinde'];
   const brands = ['CARNILOVE', 'PURIZON', 'TASTE-OF-WILD'];
+  const categories = [
+    'sans céréales',
+    'chats stérilisés',
+    'contrôle du poids',
+    'santé urinaire',
+  ];
 
   const [checkedAge, setCheckedAge] = useState(
     new Array(age.length).fill(false)
@@ -24,6 +30,11 @@ function LesCroquettes() {
   );
   console.log('verif brands', checkedBrands);
 
+  const [checkedCategories, setCheckedCategories] = useState(
+    new Array(categories.length).fill(false)
+  );
+  console.log('checked Catégories', checkedCategories);
+
   let updateDatas = [...datas];
 
   const handleFilter = () => {
@@ -35,9 +46,13 @@ function LesCroquettes() {
       !checkedFlavour[0] &&
       !checkedFlavour[1] &&
       !checkedFlavour[2] &&
-      checkedBrands[0] &&
-      checkedBrands[1] &&
-      checkedBrands[2]
+      !checkedBrands[0] &&
+      !checkedBrands[1] &&
+      !checkedBrands[2] &&
+      !checkedCategories[0] &&
+      !checkedCategories[1] &&
+      !checkedCategories[2] &&
+      !checkedCategories[3]
     ) {
       console.log(datas);
       return;
@@ -53,7 +68,11 @@ function LesCroquettes() {
       checkedFlavour[2] &&
       checkedBrands[0] &&
       checkedBrands[1] &&
-      checkedBrands[2]
+      checkedBrands[2] &&
+      checkedCategories[0] &&
+      checkedCategories[1] &&
+      checkedCategories[2] &&
+      checkedCategories[3]
     ) {
       console.log(datas);
       return;
@@ -88,6 +107,23 @@ function LesCroquettes() {
           (data.brand === brands[0].valueOf() && checkedBrands[0]) ||
           (data.brand === brands[1].valueOf() && checkedBrands[1]) ||
           (data.brand === brands[2].valueOf() && checkedBrands[2])
+        );
+      });
+    }
+
+    //if checkedCategories checked only
+    if (
+      checkedCategories[0] ||
+      checkedCategories[1] ||
+      checkedCategories[2] ||
+      checkedCategories[3]
+    ) {
+      updateDatas = datas.filter((data) => {
+        return (
+          (data.cereal && checkedCategories[0]) ||
+          (data.sterelised && checkedCategories[1]) ||
+          (data.weight && checkedCategories[2]) ||
+          (data.urinaryCare && checkedCategories[3])
         );
       });
     }
@@ -193,6 +229,15 @@ function LesCroquettes() {
     handleFilter(updatedCheckedBrands);
   };
 
+  const handleOnChangeCategoriesCheckbox = (position) => {
+    const updatedCheckedCategories = checkedCategories.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedCategories(updatedCheckedCategories);
+    handleFilter(updatedCheckedCategories);
+  };
+
   console.log(handleFilter());
 
   return (
@@ -207,6 +252,9 @@ function LesCroquettes() {
         brands={brands}
         checkedBrands={checkedBrands}
         handleOnChangeBrandsCheckbox={handleOnChangeBrandsCheckbox}
+        categories={categories}
+        checkedCategories={checkedCategories}
+        handleOnChangeCategoriesCheckbox={handleOnChangeCategoriesCheckbox}
       />
       <CardList updateDatas={updateDatas} />
     </div>

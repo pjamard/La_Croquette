@@ -13,6 +13,9 @@ function Filter(props) {
     brands,
     checkedBrands,
     handleOnChangeBrandsCheckbox,
+    categories,
+    checkedCategories,
+    handleOnChangeCategoriesCheckbox,
   } = props;
 
   return (
@@ -82,6 +85,26 @@ function Filter(props) {
           </ul>
         );
       })}
+
+      {/* Categories checkbox */}
+      {categories.map((name, index) => {
+        return (
+          <ul>
+            <li key={index}>
+              <div className='categories-list-item'>
+                <div>
+                  <Checkbox
+                    value={name}
+                    handleChange={() => handleOnChangeCategoriesCheckbox(index)}
+                    checked={checkedCategories[index]}
+                  />
+                </div>
+              </div>
+            </li>
+          </ul>
+        );
+      })}
+
     </div>
   );
 }
