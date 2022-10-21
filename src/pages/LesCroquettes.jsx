@@ -179,6 +179,69 @@ function LesCroquettes() {
       });
     }
 
+    //if checkedCategories and checkedAge checked
+    if (
+      (checkedAge[0] || checkedAge[1] || checkedAge[2]) &&
+      (checkedCategories[0] ||
+        checkedCategories[1] ||
+        checkedCategories[2] ||
+        checkedCategories[3])
+    ) {
+      updateDatas = datas.filter((data) => {
+        return (
+          ((data.age === age[0].valueOf() && checkedAge[0]) ||
+            (data.age === age[1].valueOf() && checkedAge[1]) ||
+            (data.age === age[2].valueOf() && checkedAge[2])) &&
+          ((data.cereal && checkedCategories[0]) ||
+            (data.sterelised && checkedCategories[1]) ||
+            (data.weight && checkedCategories[2]) ||
+            (data.urinaryCare && checkedCategories[3]))
+        );
+      });
+    }
+
+    //if checkedCategories and checkedFlavour checked
+    if (
+      (checkedCategories[0] ||
+        checkedCategories[1] ||
+        checkedCategories[2] ||
+        checkedCategories[3]) &&
+      (checkedFlavour[0] || checkedFlavour[1] || checkedFlavour[2])
+    ) {
+      updateDatas = datas.filter((data) => {
+        return (
+          ((data.cereal && checkedCategories[0]) ||
+            (data.sterelised && checkedCategories[1]) ||
+            (data.weight && checkedCategories[2]) ||
+            (data.urinaryCare && checkedCategories[3])) &&
+          ((data.flavour === flavours[0].valueOf() && checkedFlavour[0]) ||
+            (data.flavour === flavours[1].valueOf() && checkedFlavour[1]) ||
+            (data.flavour === flavours[2].valueOf() && checkedFlavour[2]))
+        );
+      });
+    }
+
+    //if checkedCategories and checkedBrands checked
+    if (
+      (checkedBrands[0] || checkedBrands[1] || checkedBrands[2]) &&
+      (checkedCategories[0] ||
+        checkedCategories[1] ||
+        checkedCategories[2] ||
+        checkedCategories[3])
+    ) {
+      updateDatas = datas.filter((data) => {
+        return (
+          ((data.brand === brands[0].valueOf() && checkedBrands[0]) ||
+            (data.brand === brands[1].valueOf() && checkedBrands[1]) ||
+            (data.brand === brands[2].valueOf() && checkedBrands[2])) &&
+          ((data.cereal && checkedCategories[0]) ||
+            (data.sterelised && checkedCategories[1]) ||
+            (data.weight && checkedCategories[2]) ||
+            (data.urinaryCare && checkedCategories[3]))
+        );
+      });
+    }
+
     //if checkedAge, checkedBrands and checkedFlavours checked
     if (
       (checkedBrands[0] || checkedBrands[1] || checkedBrands[2]) &&
@@ -196,6 +259,110 @@ function LesCroquettes() {
           ((data.flavour === flavours[0].valueOf() && checkedFlavour[0]) ||
             (data.flavour === flavours[1].valueOf() && checkedFlavour[1]) ||
             (data.flavour === flavours[2].valueOf() && checkedFlavour[2]))
+        );
+      });
+    }
+
+    //if checkedAge, checkedBrands and checkedCategories checked
+    if (
+      (checkedBrands[0] || checkedBrands[1] || checkedBrands[2]) &&
+      (checkedAge[0] || checkedAge[1] || checkedAge[2]) &&
+      (checkedCategories[0] ||
+        checkedCategories[1] ||
+        checkedCategories[2] ||
+        checkedCategories[3])
+    ) {
+      updateDatas = datas.filter((data) => {
+        return (
+          ((data.brand === brands[0].valueOf() && checkedBrands[0]) ||
+            (data.brand === brands[1].valueOf() && checkedBrands[1]) ||
+            (data.brand === brands[2].valueOf() && checkedBrands[2])) &&
+          ((data.age === age[0].valueOf() && checkedAge[0]) ||
+            (data.age === age[1].valueOf() && checkedAge[1]) ||
+            (data.age === age[2].valueOf() && checkedAge[2])) &&
+          ((data.cereal && checkedCategories[0]) ||
+            (data.sterelised && checkedCategories[1]) ||
+            (data.weight && checkedCategories[2]) ||
+            (data.urinaryCare && checkedCategories[3]))
+        );
+      });
+    }
+
+    //if checkedAge, checkedFlavours and checkedCategories checked
+    if (
+      (checkedFlavour[0] || checkedFlavour[1] || checkedFlavour[2]) &&
+      (checkedAge[0] || checkedAge[1] || checkedAge[2]) &&
+      (checkedCategories[0] ||
+        checkedCategories[1] ||
+        checkedCategories[2] ||
+        checkedCategories[3])
+    ) {
+      updateDatas = datas.filter((data) => {
+        return (
+          ((data.flavour === flavours[0].valueOf() && checkedFlavour[0]) ||
+            (data.flavour === flavours[1].valueOf() && checkedFlavour[1]) ||
+            (data.flavour === flavours[2].valueOf() && checkedFlavour[2])) &&
+          ((data.age === age[0].valueOf() && checkedAge[0]) ||
+            (data.age === age[1].valueOf() && checkedAge[1]) ||
+            (data.age === age[2].valueOf() && checkedAge[2])) &&
+          ((data.cereal && checkedCategories[0]) ||
+            (data.sterelised && checkedCategories[1]) ||
+            (data.weight && checkedCategories[2]) ||
+            (data.urinaryCare && checkedCategories[3]))
+        );
+      });
+    }
+
+    //if checkedBrands, checkedFlavours and checkedCategories checked
+    if (
+      (checkedFlavour[0] || checkedFlavour[1] || checkedFlavour[2]) &&
+      (checkedBrands[0] || checkedBrands[1] || checkedBrands[2]) &&
+      (checkedCategories[0] ||
+        checkedCategories[1] ||
+        checkedCategories[2] ||
+        checkedCategories[3])
+    ) {
+      updateDatas = datas.filter((data) => {
+        return (
+          ((data.flavour === flavours[0].valueOf() && checkedFlavour[0]) ||
+            (data.flavour === flavours[1].valueOf() && checkedFlavour[1]) ||
+            (data.flavour === flavours[2].valueOf() && checkedFlavour[2])) &&
+          ((data.brand === brands[0].valueOf() && checkedBrands[0]) ||
+            (data.brand === brands[1].valueOf() && checkedBrands[1]) ||
+            (data.brand === brands[2].valueOf() && checkedBrands[2])) &&
+          ((data.cereal && checkedCategories[0]) ||
+            (data.sterelised && checkedCategories[1]) ||
+            (data.weight && checkedCategories[2]) ||
+            (data.urinaryCare && checkedCategories[3]))
+        );
+      });
+    }
+
+    //if checkedBrands, checkedFlavours, checkedAge and checkedCategories checked
+    if (
+      (checkedFlavour[0] || checkedFlavour[1] || checkedFlavour[2]) &&
+      (checkedBrands[0] || checkedBrands[1] || checkedBrands[2]) &&
+      (checkedCategories[0] ||
+        checkedCategories[1] ||
+        checkedCategories[2] ||
+        checkedCategories[3]) &&
+      (checkedAge[0] || checkedAge[1] || checkedAge[2])
+    ) {
+      updateDatas = datas.filter((data) => {
+        return (
+          ((data.flavour === flavours[0].valueOf() && checkedFlavour[0]) ||
+            (data.flavour === flavours[1].valueOf() && checkedFlavour[1]) ||
+            (data.flavour === flavours[2].valueOf() && checkedFlavour[2])) &&
+          ((data.brand === brands[0].valueOf() && checkedBrands[0]) ||
+            (data.brand === brands[1].valueOf() && checkedBrands[1]) ||
+            (data.brand === brands[2].valueOf() && checkedBrands[2])) &&
+          ((data.cereal && checkedCategories[0]) ||
+            (data.sterelised && checkedCategories[1]) ||
+            (data.weight && checkedCategories[2]) ||
+            (data.urinaryCare && checkedCategories[3])) &&
+          ((data.age === age[0].valueOf() && checkedAge[0]) ||
+            (data.age === age[1].valueOf() && checkedAge[1]) ||
+            (data.age === age[2].valueOf() && checkedAge[2]))
         );
       });
     }
