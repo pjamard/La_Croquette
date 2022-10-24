@@ -45,7 +45,7 @@ function Card(props) {
         <button className='btn-info-card'>Plus d'informations</button>
       </div>
       <div>
-        <Checkbox content="Comparer"/>
+        <Checkbox value="Comparer"/>
       </div>
     </div>
   );
